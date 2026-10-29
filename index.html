@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Daniel Gitau — reinsurance broking, financial engineering, credit risk and structured financial solutions.">
+  <title>Daniel Gitau | Reinsurance & Financial Solutions</title>
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-soft: #0b192b;
+      --panel: rgba(16, 34, 55, .78);
+      --line: rgba(180, 205, 235, .14);
+      --text: #f4f7fb;
+      --muted: #aab9cc;
+      --blue: #7db4ff;
+      --cyan: #78e0db;
+      --gold: #e9c98b;
+      --max: 1160px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 82% 8%, rgba(40, 102, 165, .19), transparent 35%),
+        radial-gradient(ellipse at 8% 35%, rgba(27, 112, 120, .11), transparent 34%),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(var(--max), calc(100% - 44px)); margin: 0 auto; }
+    .nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 22px 0; border-bottom: 1px solid var(--line);
+    }
+    .brand { display: flex; gap: 12px; align-items: center; font-weight: 750; letter-spacing: -.03em; }
+    .brand-mark {
+      display: grid; place-items: center; width: 40px; height: 40px; border-radius: 13px;
+      color: #07111f; font-weight: 900; background: linear-gradient(135deg, var(--cyan), var(--blue));
+    }
+    .brand small { display: block; color: var(--muted); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; font-weight: 650; }
+    .nav-links { display: flex; gap: 28px; align-items: center; color: var(--muted); font-size: 13px; }
+    .nav-links a:hover, .text-link:hover { color: var(--cyan); }
+    .nav-cta { border: 1px solid rgba(125,180,255,.45); padding: 10px 15px; border-radius: 999px; color: var(--text) !important; }
+    .hero { display: grid; grid-template-columns: 1.13fr .87fr; gap: 64px; align-items: center; padding: 96px 0 90px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--cyan); font-size: 11px; font-weight: 800; letter-spacing: .19em; text-transform: uppercase; }
+    .eyebrow:before { content: ""; width: 25px; height: 1px; background: var(--cyan); }
+    h1 { margin: 20px 0 22px; max-width: 760px; font-size: clamp(43px, 6.2vw, 76px); line-height: 1.02; letter-spacing: -.065em; }
+    h1 span { color: var(--blue); }
+    .lead { color: var(--muted); font-size: 17px; max-width: 650px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 30px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 13px 19px; border-radius: 10px; font-weight: 750; font-size: 13px; transition: transform .2s, border-color .2s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: linear-gradient(120deg, #8bc5ff, #71e1dc); color: #061322; box-shadow: 0 10px 35px rgba(74, 165, 207, .16); }
+    .btn-secondary { border: 1px solid var(--line); color: var(--text); background: rgba(255,255,255,.025); }
+    .hero-note { color: #7f91a9; font-size: 11px; margin-top: 22px; }
+    .visual { position: relative; min-height: 420px; display: grid; place-items: center; }
+    .orb { position: absolute; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(120,224,219,.22), rgba(62,117,193,.09) 50%, transparent 72%); filter: blur(3px); }
+    .orbit { position: absolute; width: 340px; height: 340px; border: 1px solid rgba(125,180,255,.16); border-radius: 50%; transform: rotate(-24deg) scaleY(.74); }
+    .orbit.two { width: 420px; height: 420px; transform: rotate(42deg) scaleY(.72); border-color: rgba(120,224,219,.12); }
+    .profile-card {
+      z-index: 1; width: min(100%, 390px); padding: 25px; border-radius: 22px;
+      border: 1px solid rgba(173, 204, 239, .22); background: linear-gradient(145deg, rgba(19,40,65,.95), rgba(9,22,38,.91));
+      box-shadow: 0 35px 90px rgba(0,0,0,.28); backdrop-filter: blur(12px);
+    }
+    .card-top { display: flex; align-items: center; justify-content: space-between; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+    .mini-label { color: #8397b1; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; }
+    .status { color: var(--cyan); font-size: 10px; display: flex; gap: 7px; align-items: center; }
+    .status:before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 12px var(--cyan); }
+    .card-title { margin: 22px 0 5px; font-size: 21px; letter-spacing: -.04em; }
+    .card-sub { color: var(--muted); font-size: 12px; }
+    .signal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 23px; }
+    .signal { padding: 14px; border-radius: 12px; border: 1px solid var(--line); background: rgba(255,255,255,.025); }
+    .signal strong { display: block; font-size: 13px; color: var(--text); }
+    .signal span { display: block; color: var(--muted); font-size: 10px; margin-top: 4px; }
+    .mini-chart { height: 74px; margin-top: 20px; border-bottom: 1px solid var(--line); display: flex; align-items: end; gap: 8px; padding: 0 6px; }
+    .mini-chart i { display: block; flex: 1; border-radius: 4px 4px 0 0; background: linear-gradient(180deg, var(--cyan), rgba(120,224,219,.12)); }
+    .mini-chart i:nth-child(1) { height: 28%; }.mini-chart i:nth-child(2) { height: 42%; }.mini-chart i:nth-child(3) { height: 35%; }.mini-chart i:nth-child(4) { height: 58%; }.mini-chart i:nth-child(5) { height: 49%; }.mini-chart i:nth-child(6) { height: 72%; }.mini-chart i:nth-child(7) { height: 90%; }
+    section { scroll-margin-top: 28px; }
+    .section { padding: 72px 0; border-top: 1px solid var(--line); }
+    .section-heading { max-width: 720px; margin-bottom: 34px; }
+    .section-heading h2 { font-size: clamp(29px, 4vw, 44px); line-height: 1.12; letter-spacing: -.05em; margin: 14px 0; }
+    .section-heading p { color: var(--muted); margin: 0; }
+    .about-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 46px; align-items: start; }
+    .quote-panel { padding: 27px; border-left: 2px solid var(--cyan); background: linear-gradient(110deg, rgba(120,224,219,.07), transparent); border-radius: 0 14px 14px 0; }
+    .quote-panel p { font-size: 20px; line-height: 1.5; letter-spacing: -.025em; margin: 0; }
+    .quote-panel span { display: block; color: var(--muted); font-size: 12px; margin-top: 15px; }
+    .body-copy { color: var(--muted); }
+    .body-copy p { margin-top: 0; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 22px; }
+    .pill { border: 1px solid var(--line); background: rgba(255,255,255,.025); color: #c8d6e8; border-radius: 999px; padding: 7px 11px; font-size: 11px; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .feature { padding: 24px; border: 1px solid var(--line); border-radius: 16px; background: linear-gradient(145deg, rgba(18,38,61,.75), rgba(8,20,35,.55)); }
+    .feature-number { color: var(--cyan); font-size: 11px; letter-spacing: .16em; font-weight: 800; }
+    .feature h3 { font-size: 17px; margin: 16px 0 9px; letter-spacing: -.025em; }
+    .feature p { color: var(--muted); font-size: 13px; margin: 0; }
+    .timeline { border-left: 1px solid rgba(125,180,255,.35); margin-left: 7px; padding-left: 26px; display: grid; gap: 28px; }
+    .timeline-item { position: relative; }
+    .timeline-item:before { content: ""; position: absolute; width: 9px; height: 9px; border-radius: 50%; background: var(--cyan); left: -31px; top: 8px; box-shadow: 0 0 0 5px rgba(120,224,219,.08); }
+    .timeline-item h3 { margin: 0 0 6px; font-size: 16px; }
+    .timeline-item p { color: var(--muted); margin: 0; font-size: 13px; max-width: 780px; }
+    .timeline-item .tag { color: var(--blue); text-transform: uppercase; font-size: 10px; letter-spacing: .13em; font-weight: 800; }
+    .ambition { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .ambition-card { padding: 27px; border: 1px solid var(--line); border-radius: 16px; background: rgba(14,31,51,.65); }
+    .ambition-card h3 { margin: 0 0 10px; font-size: 18px; }
+    .ambition-card p { margin: 0; color: var(--muted); font-size: 13px; }
+    .cta {
+      padding: 46px; border: 1px solid rgba(125,180,255,.22); border-radius: 22px;
+      background: radial-gradient(ellipse at 100% 0%, rgba(67,131,206,.2), transparent 48%), linear-gradient(120deg, rgba(17,42,67,.95), rgba(10,25,42,.9));
+      display: flex; justify-content: space-between; align-items: center; gap: 30px;
+    }
+    .cta h2 { margin: 0 0 10px; font-size: clamp(27px, 4vw, 39px); letter-spacing: -.05em; line-height: 1.1; }
+    .cta p { color: var(--muted); margin: 0; max-width: 640px; font-size: 14px; }
+    footer { padding: 30px 0 40px; color: #7f91a9; font-size: 11px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); padding-top: 22px; }
+    .text-link { color: var(--blue); }
+    @media (max-width: 850px) {
+      .hero { grid-template-columns: 1fr; gap: 24px; padding-top: 70px; }
+      .visual { min-height: 390px; }
+      .about-grid { grid-template-columns: 1fr; gap: 25px; }
+      .cards { grid-template-columns: 1fr 1fr; }
+      .cta { align-items: flex-start; flex-direction: column; padding: 30px; }
+    }
+    @media (max-width: 580px) {
+      .wrap { width: min(var(--max), calc(100% - 30px)); }
+      .nav { align-items: flex-start; }
+      .nav-links { gap: 12px; font-size: 11px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .hero { padding: 58px 0 48px; }
+      .visual { min-height: 360px; }
+      .orbit { width: 270px; height: 270px; }
+      .orbit.two { width: 330px; height: 330px; }
+      .profile-card { padding: 20px; }
+      .cards, .ambition { grid-template-columns: 1fr; }
+      .section { padding: 55px 0; }
+      .footer-inner { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Daniel Gitau home">
+        <span class="brand-mark">DG</span>
+        <span>Daniel Gitau<small>Risk · Finance · Solutions</small></span>
+      </a>
+      <div class="nav-links">
+        <a href="#profile">Profile</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#beyond-reinsurance">Beyond reinsurance</a>
+        <a href="#direction">Career direction</a>
+        <a class="nav-cta" href="#contact">Let's connect ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="wrap">
+      <section class="hero">
+        <div>
+          <div class="eyebrow">Reinsurance · Financial Engineering</div>
+          <h1>Connecting risk insight with <span>financial solutions.</span></h1>
+          <p class="lead">
+            I work in reinsurance broking, bringing together clients, cedants, reinsurers and underwriters to help structure and place risk solutions. With a B.Sc. in Financial Engineering, I’m building toward deeper specialisation in financial guarantees, credit insurance and structured finance.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#profile">Explore my profile <span>↓</span></a>
+            <a class="btn btn-secondary" href="#direction">Where I'm heading ↗</a>
+          </div>
+          <p class="hero-note">A practical insurance-market perspective, strengthened by quantitative thinking.</p>
+        </div>
+
+        <div class="visual" aria-label="Decorative financial analytics illustration">
+          <div class="orb"></div><div class="orbit"></div><div class="orbit two"></div>
+          <div class="profile-card">
+            <div class="card-top">
+              <span class="mini-label">Professional focus</span>
+              <span class="status">Building expertise</span>
+            </div>
+            <h2 class="card-title">Risk to solution</h2>
+            <div class="card-sub">A multidisciplinary approach to complex financial risks</div>
+            <div class="signal-grid">
+              <div class="signal"><strong>Reinsurance</strong><span>Placement & relationships</span></div>
+              <div class="signal"><strong>Financial Engineering</strong><span>Quantitative foundation</span></div>
+              <div class="signal"><strong>Credit & Guarantees</strong><span>Specialist direction</span></div>
+              <div class="signal"><strong>Risk Technology</strong><span>Analytics & modelling</span></div>
+            </div>
+            <div class="mini-chart" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="mini-label" style="margin-top:12px">Analysis · Structure · Execution</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="profile">
+        <div class="about-grid">
+          <div>
+            <div class="eyebrow">Profile</div>
+            <div class="quote-panel" style="margin-top:18px">
+              <p>“I want to help turn complex risks into well-structured, commercially useful financial solutions.”</p>
+              <span>Professional value proposition</span>
+            </div>
+          </div>
+          <div class="body-copy">
+            <div class="section-heading" style="margin-bottom:18px">
+              <h2>Insurance-market experience. Quantitative mindset. Specialist ambition.</h2>
+            </div>
+            <p>
+              My current work in reinsurance broking gives me practical exposure to the relationships, negotiations and technical considerations involved in placing insurance and reinsurance risks. I work across market participants and support the process of aligning client requirements with underwriting appetite and placement terms.
+            </p>
+            <p>
+              My academic background in Financial Engineering complements this experience with a foundation for analytical thinking, financial modelling and risk assessment. I’m interested in applying that combination to more specialised, data-informed solutions for credit, guarantees and complex financial risks.
+            </p>
+            <div class="pill-row">
+              <span class="pill">Reinsurance broking</span><span class="pill">Risk placement</span>
+              <span class="pill">Financial Engineering</span><span class="pill">Financial analysis</span>
+              <span class="pill">Underwriting analytics</span><span class="pill">Business development</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="value-proposition">
+        <div class="about-grid">
+          <div class="section-heading">
+            <div class="eyebrow">Value proposition</div>
+            <h2>Technical depth. Commercial perspective. Technology-driven innovation.</h2>
+          </div>
+          <div class="body-copy">
+            <p>
+              I want to combine technical expertise, commercial acumen and technology-driven innovation to solve complex financial-risk challenges and unlock new business opportunities, particularly across African markets.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="expertise">
+        <div class="section-heading">
+          <div class="eyebrow">Areas of focus</div>
+          <h2>Where I bring value—and where I’m building depth.</h2>
+          <p>A combination of market-facing experience and analytical interests, directed toward specialist financial-risk solutions.</p>
+        </div>
+        <div class="cards">
+          <article class="feature">
+            <div class="feature-number">01 / CURRENT WORK</div>
+            <h3>Reinsurance Broking & Placement</h3>
+            <p>Coordinating with clients, cedants, reinsurers and underwriters; supporting risk submissions, placement discussions, terms negotiation and relationship management.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-number">02 / ANALYTICAL FOUNDATION</div>
+            <h3>Financial Engineering & Risk Analysis</h3>
+            <p>Applying a quantitative mindset to financial information, risk drivers, modelling and structured decision-making.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-number">03 / SPECIALIST INTEREST</div>
+            <h3>Guarantees, Surety & Credit Insurance</h3>
+            <p>Developing specialist capability in guarantee and bond structures, trade credit risk, counterparty assessment and risk transfer.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-number">04 / FUTURE CAPABILITY</div>
+            <h3>Structured Finance Solutions</h3>
+            <p>Exploring how insurance, guarantees and risk-transfer mechanisms can support financing transactions and commercial objectives.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-number">05 / IN DEVELOPMENT</div>
+            <h3>Underwriting & Pricing Technology</h3>
+            <p>Building knowledge of data-led underwriting, financial analysis tools and pricing frameworks for specialist risks.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-number">06 / MARKET APPROACH</div>
+            <h3>Relationships & Opportunity Development</h3>
+            <p>Connecting market needs with potential underwriting capacity and developing opportunities across the insurance and reinsurance ecosystem.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="about-grid">
+          <div class="section-heading">
+            <div class="eyebrow">My professional approach</div>
+            <h2>Understand the risk. Analyse the fundamentals. Structure the solution.</h2>
+            <p>My aim is to combine commercial judgement, technical learning and analytical discipline rather than treat risk placement as a purely transactional exercise.</p>
+          </div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="tag">01 · Understand</div>
+              <h3>Start with the underlying transaction</h3>
+              <p>Understand the client’s objective, the parties involved, the contractual obligations and the risk that needs to be transferred or supported.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="tag">02 · Analyse</div>
+              <h3>Connect risk with financial fundamentals</h3>
+              <p>Build deeper capability in financial statement analysis, forecasting, counterparty assessment and risk-sensitive pricing.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="tag">03 · Structure</div>
+              <h3>Work toward practical, well-aligned solutions</h3>
+              <p>Bring together coverage, wording, capacity, pricing and commercial needs to support solutions that work for the relevant stakeholders.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="direction">
+        <div class="section-heading">
+          <div class="eyebrow">Career direction</div>
+          <h2>Building toward specialist financial-risk and structured-solutions work.</h2>
+          <p>My ambition is to deepen my technical expertise while staying close to real transactions, clients and underwriting decisions.</p>
+        </div>
+        <div class="ambition">
+          <article class="ambition-card">
+            <h3>Financial guarantees & surety</h3>
+            <p>Developing expertise in bonds, guarantees, contractual obligations, counterparty strength, collateral and the underwriting considerations behind these products.</p>
+          </article>
+          <article class="ambition-card">
+            <h3>Trade credit & credit risk</h3>
+            <p>Building capability in buyer and obligor assessment, credit risk, portfolio considerations and insurance solutions that protect commercial receivables.</p>
+          </article>
+          <article class="ambition-card">
+            <h3>Structured finance & financial solutions</h3>
+            <p>Exploring the intersection of insurance, guarantees, capital, financing structures and risk mitigation to support complex transactions.</p>
+          </article>
+          <article class="ambition-card">
+            <h3>Quantitative underwriting & InsurTech</h3>
+            <p>Developing practical analytical tools that bring financial modelling, risk scoring and transparent pricing logic into specialist underwriting workflows.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="beyond-reinsurance">
+        <div class="section-heading">
+          <div class="eyebrow">Beyond reinsurance</div>
+          <h2>A wider view of finance, capital and risk.</h2>
+          <p>
+            I also have a keen interest in the wider world of finance and risk, which informs how I think about structuring and pricing credit risk.
+          </p>
+        </div>
+        <div class="cards">
+          <article class="feature"><div class="feature-number">01</div><h3>Investment & Corporate Finance</h3><p>Investment banking, corporate finance, valuation, capital raising, and mergers and acquisitions.</p></article>
+          <article class="feature"><div class="feature-number">02</div><h3>Financing Structures</h3><p>Project finance and the role of guarantees, insurance and risk mitigation in supporting transactions.</p></article>
+          <article class="feature"><div class="feature-number">03</div><h3>Emerging Risk Solutions</h3><p>Climate-risk analytics and parametric insurance, including data-led approaches to risk transfer.</p></article>
+        </div>
+        <div style="margin-top:38px">
+          <div class="section-heading" style="margin-bottom:24px">
+            <div class="eyebrow">Experience across lines</div>
+            <h2>A broad insurance and reinsurance perspective.</h2>
+            <p>Experience and exposure across a range of specialist and traditional classes, alongside treaty analysis and negotiations.</p>
+          </div>
+          <div class="pill-row">
+            <span class="pill">Surety Bonds & Guarantees</span>
+            <span class="pill">Trade Credit Insurance</span>
+            <span class="pill">Credit Life</span>
+            <span class="pill">Financial Lines</span>
+            <span class="pill">Space and Aviation</span>
+            <span class="pill">Marine</span>
+            <span class="pill">Energy</span>
+            <span class="pill">Political Violence and Terrorism (PVT)</span>
+            <span class="pill">Cyber</span>
+            <span class="pill">Fine Art and Specie</span>
+            <span class="pill">Parametric / Index-Based Risks</span>
+            <span class="pill">Construction and Engineering</span>
+            <span class="pill">Fire and Property</span>
+            <span class="pill">General and Specialized Liability</span>
+            <span class="pill">Treaty Analysis and Negotiations</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="cta">
+          <div>
+            <div class="eyebrow">Connect</div>
+            <h2>Open to ideas, collaboration and specialist opportunities.</h2>
+            <p>I welcome conversations with professionals working across financial guarantees, credit insurance, structured finance, underwriting, risk analytics and insurance technology.</p>
+          </div>
+          <a class="btn btn-primary" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="wrap">
+    <div class="footer-inner">
+      <span>© <span id="year">2026</span> Daniel Gitau · Professional portfolio</span>
+      <span>Reinsurance · Financial Engineering · Structured Solutions</span>
+    </div>
+  </footer>
+</body>
+</html>
